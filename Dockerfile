@@ -32,4 +32,4 @@ EXPOSE 27100
 
 WORKDIR /opt/Thinkbox/DeadlineDatabase10/mongo
 
-ENTRYPOINT ["./application/bin/mongod", "--config", "./data/config.conf"]
+CMD ["./application/bin/mongod", "--config", "./data/config.conf"]
