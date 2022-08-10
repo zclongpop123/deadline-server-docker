@@ -21,7 +21,7 @@ RUN dnf install -y file bzip2 &&\
         --installmongodb true \
         --dbInstallationType prepackagedDB \
         --prepackagedDB /tmp/thinkboxsetup/mongodb-linux-x86_64-rhel80-4.2.12.tgz \
-        --requireSSL false
+        --requireSSL true
 
 
 FROM rockylinux:8.6
