@@ -29,3 +29,5 @@ FROM rockylinux:8.6
 COPY --from=installer /opt/Thinkbox /opt/Thinkbox
 
 EXPOSE 27100
+
+WORKDIR /opt/Thinkbox/DeadlineDatabase10/mongo
