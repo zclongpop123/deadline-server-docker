@@ -31,3 +31,5 @@ COPY --from=installer /opt/Thinkbox /opt/Thinkbox
 EXPOSE 27100
 
 WORKDIR /opt/Thinkbox/DeadlineDatabase10/mongo
+
+ENTRYPOINT ["./application/bin/mongod", "--config", "./data/config.conf"]
