@@ -24,4 +24,8 @@ RUN dnf install -y file bzip2 &&\
         --requireSSL false
 
 
+FROM rockylinux:8.6
+
+COPY --from=installer /opt/Thinkbox /opt/Thinkbox
+
 EXPOSE 27100
