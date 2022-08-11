@@ -14,7 +14,7 @@ COPY ./mongodb-linux-x86_64-rhel80-4.2.12.tgz /tmp/thinkboxsetup/
 COPY ./DeadlineRepository-10.*-linux-x64-installer.run /tmp/thinkboxsetup/
 
 
-RUN dnf install -y file bzip2 &&\
+RUN dnf install -y initscripts file bzip2 &&\
     /tmp/thinkboxsetup/DeadlineRepository-10.*-linux-x64-installer.run \
         --mode unattended \
         --dbtype MongoDB \
