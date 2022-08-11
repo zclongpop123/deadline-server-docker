@@ -1,0 +1,15 @@
+version: '3'
+  
+services:
+    deadline-repo:
+        container_name: DeadlineRepository10
+        
+        image: deadline-repository:10
+        restart: unless-stopped
+        
+        volumes:
+            - /opt/Thinkbox:/opt/Thinkbox
+            - /etc/localtime:/etc/localtime:ro
+
+        ports:
+            - '27100:27100'
