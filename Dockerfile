@@ -21,7 +21,9 @@ RUN dnf install -y initscripts file bzip2 &&\
         --installmongodb true \
         --dbInstallationType prepackagedDB \
         --prepackagedDB /tmp/thinkboxsetup/mongodb-linux-x86_64-rhel80-4.2.12.tgz \
-        --requireSSL true
+        --requireSSL true || true &&\
+    rm -rf /opt/Thinkbox/DeadlineDatabase10/mongo/data/logs/*
+
 
 
 FROM rockylinux:8.6
