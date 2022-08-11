@@ -22,7 +22,8 @@ RUN dnf install -y initscripts file bzip2 &&\
         --prepackagedDB /tmp/thinkboxsetup/mongodb-linux-x86_64-rhel80-4.2.12.tgz \
         --requireSSL true || true &&\
     rm -rf /opt/Thinkbox/DeadlineDatabase10/mongo/data/logs/* &&\
-    cp /opt/Thinkbox/DeadlineDatabase10/certs/Deadline10Client.pfx /opt/Thinkbox/DeadlineRepository10/
+    cp /opt/Thinkbox/DeadlineDatabase10/certs/Deadline10Client.pfx /opt/Thinkbox/DeadlineRepository10/ **\
+    chmod +r /opt/Thinkbox/DeadlineRepository10/Deadline10Client.pfx
 
 
 FROM rockylinux:8.6
