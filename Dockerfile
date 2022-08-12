@@ -34,7 +34,7 @@ RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     dnf install -y rsync
 
 COPY --from=installer /opt/Thinkbox /root/Thinkbox
-COPY ./docker-entrypoint.sh /root/Thinkbox/
+COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN chmod +x /root/Thinkbox/docker-entrypoint.sh
 
@@ -42,6 +42,6 @@ WORKDIR /opt/Thinkbox/DeadlineDatabase10/mongo
 
 EXPOSE 27100
 
-ENTRYPOINT ["/root/Thinkbox/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD ["./application/bin/mongod", "--config", "./data/config.conf"]
