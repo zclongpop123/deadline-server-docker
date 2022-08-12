@@ -36,7 +36,7 @@ RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
 COPY --from=installer /opt/Thinkbox /root/Thinkbox
 COPY docker-entrypoint.sh /usr/local/bin/
 
-RUN chmod +x /root/Thinkbox/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 WORKDIR /opt/Thinkbox/DeadlineDatabase10/mongo
 
