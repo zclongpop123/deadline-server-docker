@@ -22,9 +22,10 @@ RUN /tmp/thinkboxsetup/DeadlineRepository-10.*-linux-x64-installer.run \
     cp /opt/Thinkbox/DeadlineDatabase10/certs/Deadline10Client.pfx /opt/Thinkbox/DeadlineRepository10/ &&\
     chmod +r /opt/Thinkbox/DeadlineRepository10/Deadline10Client.pfx
 
-RUN sed -e 's|requireSSL|requireTLS|g' \
+RUN sed -e 's|ssl:|tls:|g' \
+        -e 's|requireSSL|requireTLS|g' \
         -e 's|PEMKeyFile|certificateKeyFile|g' \
-        -i.bak
+        -i.bak \
     /opt/Thinkbox/DeadlineDatabase10/mongo/data/config.conf
 
 
