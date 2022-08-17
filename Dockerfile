@@ -45,10 +45,12 @@ COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
+ENV PATH $PATH:/opt/Thinkbox/DeadlineDatabase10/mongo/application/bin
+
 WORKDIR /opt/Thinkbox/DeadlineDatabase10/mongo
 
 EXPOSE 27100
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-CMD ["./application/bin/mongod", "--config", "./data/config.conf"]
+CMD ["mongod", "--config", "./data/config.conf"]
