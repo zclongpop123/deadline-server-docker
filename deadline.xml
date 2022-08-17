@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <short>DeadlineRepository</short>
+  <description>AWS Thinkbox Deadline is a hassle-free hybrid administration and compute management software for Windows, Linux, and mac OS based render farms, supporting more than 80 different content creation applications out of the box.</description>
+  <port protocol="tcp" port="27100"/>
+</service>
