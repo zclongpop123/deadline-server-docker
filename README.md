@@ -2,7 +2,7 @@ Deadline Repository Docker
 --
 - 构建镜像
 ```bash
-docker build -t deadline-repository:10.1 .
+docker build -t deadline-repository:10.3.0.15 .
 ```
 - 运行容器
 ```bash
