@@ -4,7 +4,7 @@ services:
     deadline-repo:
         container_name: DeadlineRepository10
         
-        image: deadline-repository:10.1
+        image: deadline-repository:10.3.0.15
         restart: unless-stopped
         
         volumes:
