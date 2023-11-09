@@ -8,8 +8,12 @@ services:
         restart: unless-stopped
         
         volumes:
-            - /opt/Thinkbox:/opt/Thinkbox
-            - /etc/localtime:/etc/localtime:ro
+            - type: bind
+              source: /home/Thinkbox
+              target: /opt/Thinkbox
+        
+        environment:
+            TZ: "Asia/Shanghai"    
 
         ports:
             - '27100:27100'
