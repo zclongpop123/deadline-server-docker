@@ -1,4 +1,4 @@
-FROM rockylinux:8 AS installer
+FROM rockylinux:8.8 AS installer
 
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
@@ -8,7 +8,7 @@ RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     dnf install -y initscripts file bzip2 &&\
     mkdir /tmp/thinkboxsetup/
 
-COPY mongodb-linux-x86_64-rhel80-4.2.12.tgz /tmp/thinkboxsetup/
+COPY mongodb-linux-x86_64-rhel80-4.4.19.tgz /tmp/thinkboxsetup/
 COPY DeadlineRepository-10.*-linux-x64-installer.run /tmp/thinkboxsetup/
 
 RUN /tmp/thinkboxsetup/DeadlineRepository-10.*-linux-x64-installer.run \
@@ -16,7 +16,7 @@ RUN /tmp/thinkboxsetup/DeadlineRepository-10.*-linux-x64-installer.run \
         --dbtype MongoDB \
         --installmongodb true \
         --dbInstallationType prepackagedDB \
-        --prepackagedDB /tmp/thinkboxsetup/mongodb-linux-x86_64-rhel80-4.2.12.tgz \
+        --prepackagedDB /tmp/thinkboxsetup/mongodb-linux-x86_64-rhel80-4.4.19.tgz \
         --requireSSL true &&\
     rm -rf /opt/Thinkbox/DeadlineDatabase10/mongo/data/logs/* &&\
     cp /opt/Thinkbox/DeadlineDatabase10/certs/Deadline10Client.pfx /opt/Thinkbox/DeadlineRepository10/ &&\
@@ -31,7 +31,7 @@ RUN sed -e 's|ssl:|tls:|g' \
 
 
 
-FROM rockylinux:8.6
+FROM rockylinux:8.8
 
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
