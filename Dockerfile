@@ -1,4 +1,4 @@
-FROM rockylinux:8.8 AS installer
+FROM rockylinux:8 AS installer
 
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
@@ -31,7 +31,7 @@ RUN sed -e 's|ssl:|tls:|g' \
 
 
 
-FROM rockylinux:8.8
+FROM rockylinux:8
 
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
