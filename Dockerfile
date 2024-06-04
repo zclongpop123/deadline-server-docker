@@ -16,7 +16,7 @@ RUN /tmp/thinkboxsetup/DeadlineRepository-10.*-linux-x64-installer.run \
         --dbtype MongoDB \
         --installmongodb true \
         --dbInstallationType prepackagedDB \
-        --prepackagedDB /tmp/thinkboxsetup/mongodb-linux-x86_64-rhel80-4.4.19.tgz \
+        --prepackagedDB /tmp/thinkboxsetup/mongodb-linux-x86_64-rhel80-5.0.22.tgz \
         --requireSSL true &&\
     rm -rf /opt/Thinkbox/DeadlineDatabase10/mongo/data/logs/* &&\
     cp /opt/Thinkbox/DeadlineDatabase10/certs/Deadline10Client.pfx /opt/Thinkbox/DeadlineRepository10/ &&\
