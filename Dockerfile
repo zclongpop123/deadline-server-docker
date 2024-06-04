@@ -1,9 +1,9 @@
-FROM rockylinux:9 AS installer
+FROM rockylinux:8 AS installer
 
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
     -i.bak \
-    /etc/yum.repos.d/rocky-*.repo &&\
+    /etc/yum.repos.d/Rocky-*.repo &&\
     dnf makecache &&\
     dnf install -y initscripts file bzip2 &&\
     mkdir /tmp/thinkboxsetup/
@@ -31,12 +31,12 @@ RUN sed -e 's|ssl:|tls:|g' \
 
 
 
-FROM rockylinux:9
+FROM rockylinux:8
 
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
     -i.bak \
-    /etc/yum.repos.d/rocky-*.repo &&\
+    /etc/yum.repos.d/Rocky-*.repo &&\
     dnf makecache &&\
     dnf install -y rsync
 
