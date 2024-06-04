@@ -3,7 +3,7 @@ FROM rockylinux:9 AS installer
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
     -i.bak \
-    /etc/yum.repos.d/Rocky-*.repo &&\
+    /etc/yum.repos.d/rocky-*.repo &&\
     dnf makecache &&\
     dnf install -y initscripts file bzip2 &&\
     mkdir /tmp/thinkboxsetup/
@@ -36,7 +36,7 @@ FROM rockylinux:9
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
     -i.bak \
-    /etc/yum.repos.d/Rocky-*.repo &&\
+    /etc/yum.repos.d/rocky-*.repo &&\
     dnf makecache &&\
     dnf install -y rsync
 
