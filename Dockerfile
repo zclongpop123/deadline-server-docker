@@ -31,7 +31,7 @@ RUN sed -e 's|ssl:|tls:|g' \
 
 
 
-FROM rockylinux:8
+FROM rockylinux:9
 
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
