@@ -1,4 +1,4 @@
-FROM rockylinux:8 AS installer
+FROM rockylinux:9 AS installer
 
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     -e 's|^#baseurl=http://dl.rockylinux.org/$contentdir|baseurl=https://mirrors.nju.edu.cn/rocky|g' \
@@ -8,7 +8,7 @@ RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
     dnf install -y initscripts file bzip2 &&\
     mkdir /tmp/thinkboxsetup/
 
-COPY mongodb-linux-x86_64-rhel80-4.4.19.tgz /tmp/thinkboxsetup/
+COPY mongodb-linux-x86_64-rhel80-5.0.22.tgz /tmp/thinkboxsetup/
 COPY DeadlineRepository-10.*-linux-x64-installer.run /tmp/thinkboxsetup/
 
 RUN /tmp/thinkboxsetup/DeadlineRepository-10.*-linux-x64-installer.run \
